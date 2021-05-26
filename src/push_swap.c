@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 15:21:04 by user42            #+#    #+#             */
-/*   Updated: 2021/05/26 20:20:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/26 21:49:57 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	has_double(t_dlist *list)
 	return (0);
 }
 
-void	create_stack(t_dlist **stack_a, int argc, char **argv)
+int	create_stack(t_dlist **stack_a, int argc, char **argv)
 {
 	int		i;
 	int		*nb;
@@ -69,21 +69,22 @@ void	create_stack(t_dlist **stack_a, int argc, char **argv)
 	{
 		if (!str_is_number(argv[i]))
 		{
-			printf("Error\n");
-			ft_free_stack(*stack_a);
-			exit(1);
+			write(1, "Error\n", 6);
+			exit(ft_free_stack(*stack_a));
 		}
 		nb = malloc(sizeof(int) * 1);
+		if (nb == NULL)
+			return (-1);
 		*nb = ft_atoi(argv[i]);
 		ft_list_push_back(stack_a, (void *)nb);
 		i++;
 	}
 	if (has_double(*stack_a))
 	{
-		printf("Error\n");
-		ft_free_stack(*stack_a);
-		exit(1);
+		write(1, "Error\n", 6);
+		exit(ft_free_stack(*stack_a));
 	}
+	return (0);
 }
 
 void	push_swap(t_dlist **stack_a, t_dlist **stack_b)

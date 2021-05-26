@@ -6,24 +6,11 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 20:37:49 by user42            #+#    #+#             */
-/*   Updated: 2021/05/26 12:29:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/26 21:51:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-void	print_intlist(t_dlist *begin, char c)//#
-{
-	printf("stack %c\n", c);
-	if (!begin)
-		return ;
-	while (begin)
-	{
-		printf("%d (%d)\n", *((int *)(begin->data)), begin->e_type);
-		begin = begin->next;
-	}
-}*/
 
 int	dlist_size(t_dlist *lst)
 {
@@ -38,7 +25,7 @@ int	dlist_size(t_dlist *lst)
 	return (i);
 }
 
-void	ft_free_stack(t_dlist *begin_list)
+int	ft_free_stack(t_dlist *begin_list)
 {
 	t_dlist	*tmp;
 
@@ -49,6 +36,7 @@ void	ft_free_stack(t_dlist *begin_list)
 		free(begin_list);
 		begin_list = tmp;
 	}
+	return (1);
 }
 
 int	ft_atoi(const char *str)

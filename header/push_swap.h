@@ -6,13 +6,14 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 15:33:41 by user42            #+#    #+#             */
-/*   Updated: 2021/05/26 20:11:09 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/26 21:51:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
-# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_dlist
 {
@@ -23,7 +24,6 @@ typedef struct s_dlist
 		PIVOT,
 		SORTED,
 	}	e_type;
-	int				bottom;
 	struct s_dlist	*prev;
 	struct s_dlist	*next;
 }				t_dlist;
@@ -40,7 +40,7 @@ typedef struct s_pivot
 */
 int		main(int argc, char **argv);
 void	push_swap(t_dlist **stack_a, t_dlist **stack_b);
-void	create_stack(t_dlist **stack_a, int argc, char **argv);
+int		create_stack(t_dlist **stack_a, int argc, char **argv);
 int		has_double(t_dlist *list);
 int		str_is_number(char *str);
 /*
@@ -127,7 +127,7 @@ t_dlist	*ft_create_elem(void *data);
 ** LIB UTILS
 */
 int		dlist_size(t_dlist *lst);
-void	ft_free_stack(t_dlist *begin_list);
+int		ft_free_stack(t_dlist *begin_list);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		ft_abs(int x);

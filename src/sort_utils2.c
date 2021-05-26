@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:01:22 by user42            #+#    #+#             */
-/*   Updated: 2021/05/26 13:02:11 by user42           ###   ########.fr       */
+/*   Updated: 2021/05/26 21:24:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	calculate_medium(t_dlist *stack)
 		size++;
 		index = index->next;
 	}
-	all = all / size;
+	if (size)
+		all = all / size;
 	return (all);
 }
 
